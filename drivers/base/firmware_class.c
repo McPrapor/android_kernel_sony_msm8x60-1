@@ -1246,7 +1246,8 @@ static int _request_firmware(struct fw_desc *desc)
 
 	if (!fw_get_filesystem_firmware(desc->device, fw->priv,
 					desc->dest_addr, desc->dest_size))
-		ret = fw_load_from_user_helper(fw, desc, timeout);
+//              ret = fw_load_from_user_helper(fw, desc, timeout);
+                ret = fw_load_from_user_helper(fw, desc->name, desc->device, desc->uevent, desc->nowait, timeout);
 	if (!ret)
 		ret = assign_firmware_buf(fw, desc->device, desc->nocache);
 
